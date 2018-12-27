@@ -1,0 +1,26 @@
+{
+  "name": "tuai",
+  "version": "0.0.6",
+  "author": "Bjorn Krols",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Botre/tuai.git"
+  },
+  "main": "dist/tuai.js",
+  "scripts": {
+    "build": "webpack --mode production --progress"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.2.0",
+    "nanoid": "^2.0.0"
+  }
+}
