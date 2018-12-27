@@ -32,7 +32,7 @@ const sender = new Tuai.Sender({
 import { Receiver } from "tuai";
 const receiver = new Receiver();
 receiver.addResponder({ origin } => {
-  if (!origin === "https://sender.fake") {
+  if (origin !== "https://sender.fake") {
     throw new Error("Illegal origin");
   }
   return 10;
@@ -91,7 +91,7 @@ http://unpkg.com/tuai@latest
     <script>
       var receiver = new Tuai.Receiver();
       receiver.addResponder(function(ctx) {
-        if (!ctx.origin === "https://sender.fake") {
+        if (ctx.origin !== "https://sender.fake") {
           throw new Error("Illegal origin");
         }
         return 10;
