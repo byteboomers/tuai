@@ -20,7 +20,7 @@ npm install --save tuai
 
 ```javascript
 import { Sender } from "tuai";
-const sender = new Tuai.Sender({
+const sender = new Sender({
   querySelectors: ["#portal"],
   targetOrigin: "https://receiver.fake"
 });
