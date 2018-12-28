@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git+https://github.com/Botre/tuai.git"
   },
+  "bugs": {
+    "url": "https://github.com/Botre/tuai/issues"
+  },
   "main": "dist/tuai.js",
   "scripts": {
     "build": "webpack --mode production --progress"
