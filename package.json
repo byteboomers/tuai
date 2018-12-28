@@ -1,5 +1,6 @@
 {
   "name": "tuai",
+  "description": "Asynchronous request–response iframe messaging",
   "version": "0.0.8",
   "author": "Bjorn Krols",
   "license": "MIT",

@@ -1,110 +1,111 @@
 # Tuai
 
-> TODO
+> Asynchronous request–response iframe messaging
 
 ## About
 
-TODO
+The goal of Tuai is to facilitate asynchronous request–response iframe messaging.
 
-## Installation & setup
+### Sender:
 
-### Option 1: module bundler
+The sender sends messages to the iframe.
 
-Install the latest version from npm:
-
+```javascript
+const response = await sender.send({ a: 5, b: 3 });
+console.log("The sum of a and b is", response);
 ```
+
+### Receiver
+
+The receiver, inside the iframe, listens to incoming messages.
+
+```javascript
+receiver.addResponder(ctx => {
+  return ctx.message.a + ctx.message.b;
+});
+```
+
+## Installation
+
+### NPM
+
+```bash
 npm install --save tuai
 ```
 
-#### Sender
+### CDN
+
+```html
+<script src="https://unpkg.com/tuai@latest"></script>
+```
+
+## Setup
+
+### Sender
 
 ```javascript
 import { Sender } from "tuai";
 const sender = new Sender({
   querySelectors: ["#portal"],
-  targetOrigin: "https://receiver.fake"
+  receiverOrigin: "https://receiver.fake"
 });
 ```
 
-#### Receiver
+_querySelectors_: array of selectors used to find the iframe of the receiver (delegated to [Document.querySelector()](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector))
+
+_receiverOrigin_: origin of the receiver
+
+### Receiver
 
 ```javascript
 import { Receiver } from "tuai";
 const receiver = new Receiver();
-receiver.addResponder({ origin } => {
-  if (origin !== "https://sender.fake") {
-    throw new Error("Illegal origin");
-  }
-  return 10;
-});
-```
-
-### Option 2: direct script tag
-
-The latest version of Tuai can be found at:
-
-```
-https://unpkg.com/tuai@latest
-```
-
-#### Sender
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Sender</title>
-  </head>
-  <body>
-    <button id="send-message">Send message</button>
-    <iframe
-      id="portal"
-      src="https://receiver.fake"
-      style="display: none;"
-    ></iframe>
-    <script src="https://unpkg.com/tuai@latest"></script>
-    <script>
-      var sender = new Tuai.Sender({
-        querySelectors: ["#portal"],
-        targetOrigin: "https://receiver.fake"
-      });
-      document
-        .getElementById("send-message")
-        .addEventListener("click", function() {
-          sender.send("What is 5 + 5?").then(response => {
-            console.log(response);
-          });
-        });
-    </script>
-  </body>
-</html>
-```
-
-#### Receiver
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Receiver</title>
-    <script src="https://unpkg.com/tuai@latest"></script>
-    <script>
-      var receiver = new Tuai.Receiver();
-      receiver.addResponder(function(ctx) {
-        if (ctx.origin !== "https://sender.fake") {
-          throw new Error("Illegal origin");
-        }
-        return 10;
-      });
-    </script>
-  </head>
-</html>
 ```
 
 ## API
 
-TODO
+### Sender
 
+#### sendMessage(message)
+
+Sends a message (of any type) and returns a promise with the answer of the receiver.
+
+```javascript
+const response = await sender.send("Hello, World!");
+console.log(response);
+```
+
+### Receiver
+
+#### addResponder(responder)
+
+Registers a responder that will respond to incomding messages.
+
+```javascript
+receiver.addResponder(function(ctx) {
+  return "Goodbye, World!";
+});
+```
+
+A reponder:
+
+- Must be a function or a promise.
+  - Function: the return value (if present) will be sent as the answer.
+  - Promise: the resolved (or rejected) value will be sent as the answer.
+- Has access to a ctx variable.
+  - ctx.origin: the origin of sender, should most likely be used to verify the origin:
+  ```javascript
+  if (ctx.origin !== "https://sender.fake") {
+    throw new Error("Do I know you?");
+  }
+  ```
+  - ctx.message: the message it is responding to:
+  ```javascript
+  if (!ctx.mesage.startsWith("Hello,")) {
+    throw new Error("Don't be so rude!");
+  }
+  ```
+  
 ## Powered by
 
 - Babel

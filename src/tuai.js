@@ -4,19 +4,19 @@ const POLL_INTERVAL = 60;
 const REQUEST_TYPE = "request";
 const RESPONSE_TYPE = "response";
 
-export function Sender({ querySelectors, targetOrigin, timeout = 15000 }) {
+export function Sender({ querySelectors, receiverOrigin, timeout = 15000 }) {
   if (!querySelectors || !querySelectors.length) {
     throw new Error("Missing 'querySelectors'");
   }
-  if (!targetOrigin) {
-    throw new Error("Missing 'targetOrigin'");
+  if (!receiverOrigin) {
+    throw new Error("Missing 'receiverOrigin'");
   }
   const responses = [];
   window.addEventListener("message", e => {
     const id = e.data.id;
     const origin = e.origin;
     const type = e.data.type;
-    if (type === RESPONSE_TYPE && origin === targetOrigin) {
+    if (type === RESPONSE_TYPE && origin === receiverOrigin) {
       responses[id] = e.data;
     }
   });
@@ -31,7 +31,7 @@ export function Sender({ querySelectors, targetOrigin, timeout = 15000 }) {
             type: REQUEST_TYPE,
             message
           },
-          targetOrigin
+          receiverOrigin
         );
         let attempts = 0;
         let maximumAttempts = timeout / POLL_INTERVAL;
