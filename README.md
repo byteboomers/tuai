@@ -116,7 +116,7 @@ if (!ctx.mesage.startsWith("Hello,")) {
 
 ## Powered by
 
-- Babel
+- Babel 7
 - Webpack 4
 
 ## License
