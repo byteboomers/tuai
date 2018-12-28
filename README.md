@@ -44,7 +44,7 @@ receiver.addResponder({ origin } => {
 The latest version of Tuai can be found at:
 
 ```
-http://unpkg.com/tuai@latest
+https://unpkg.com/tuai@latest
 ```
 
 #### Sender
@@ -62,7 +62,7 @@ http://unpkg.com/tuai@latest
       src="https://receiver.fake"
       style="display: none;"
     ></iframe>
-    <script src="http://unpkg.com/tuai@latest"></script>
+    <script src="https://unpkg.com/tuai@latest"></script>
     <script>
       var sender = new Tuai.Sender({
         querySelectors: ["#portal"],
@@ -87,7 +87,7 @@ http://unpkg.com/tuai@latest
 <html lang="en">
   <head>
     <title>Receiver</title>
-    <script src="http://unpkg.com/tuai@latest"></script>
+    <script src="https://unpkg.com/tuai@latest"></script>
     <script>
       var receiver = new Tuai.Receiver();
       receiver.addResponder(function(ctx) {
