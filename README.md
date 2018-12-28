@@ -105,7 +105,7 @@ A reponder:
     throw new Error("Don't be so rude!");
   }
   ```
-  
+
 ## Powered by
 
 - Babel
