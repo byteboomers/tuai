@@ -33,6 +33,8 @@ receiver.addResponder(ctx => {
 npm install --save tuai
 ```
 
+[npm package link](https://www.npmjs.com/package/tuai)
+
 ### CDN
 
 ```html
