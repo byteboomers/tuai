@@ -96,7 +96,7 @@ Must be a function or a promise:
 
 Has access to a ctx variable:
 
-ctx.origin: the origin of sender, should most likely be used to verify the origin:
+ctx.origin: the origin of sender, can (read: should) be used to verify the origin:
 
 ```javascript
 if (ctx.origin !== "https://sender.fake") {
