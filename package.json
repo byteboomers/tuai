@@ -4,6 +4,15 @@
   "version": "0.0.9",
   "author": "Bjorn Krols",
   "license": "MIT",
+  "keywords": [
+    "iframe",
+    "postMessage",
+    "contentWindow",
+    "promise",
+    "asynchronous",
+    "messaging",
+    "browser"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Botre/tuai.git"
