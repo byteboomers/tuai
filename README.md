@@ -89,22 +89,28 @@ receiver.addResponder(function(ctx) {
 
 A reponder:
 
-- Must be a function or a promise.
-  - Function: the return value (if present) will be sent as the answer.
-  - Promise: the resolved (or rejected) value will be sent as the answer.
-- Has access to a ctx variable.
-  - ctx.origin: the origin of sender, should most likely be used to verify the origin:
-  ```javascript
-  if (ctx.origin !== "https://sender.fake") {
-    throw new Error("Do I know you?");
-  }
-  ```
-  - ctx.message: the message it is responding to:
-  ```javascript
-  if (!ctx.mesage.startsWith("Hello,")) {
-    throw new Error("Don't be so rude!");
-  }
-  ```
+Must be a function or a promise:
+
+- Function: the return value (if present) will be sent as the answer.
+- Promise: the resolved (or rejected) value will be sent as the answer.
+
+Has access to a ctx variable:
+
+ctx.origin: the origin of sender, should most likely be used to verify the origin:
+
+```javascript
+if (ctx.origin !== "https://sender.fake") {
+  throw new Error("Do I know you?");
+}
+```
+
+ctx.message: the message it is responding to:
+
+```javascript
+if (!ctx.mesage.startsWith("Hello,")) {
+  throw new Error("Don't be so rude!");
+}
+```
 
 ## Powered by
 
