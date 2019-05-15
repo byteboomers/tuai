@@ -1,8 +1,8 @@
 {
   "name": "tuai",
-  "description": "Asynchronous request–response iframe messaging",
   "version": "1.0.0",
-  "author": "Bjorn Krols",
+  "description": "Asynchronous request–response iframe messaging",
+  "author": "Bjorn Krols (https://byteboomers.com)",
   "license": "MIT",
   "keywords": [
     "iframe",
@@ -13,16 +13,21 @@
     "messaging",
     "browser"
   ],
+  "homepage": "https://github.com/byteboomers/tuai#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Botre/tuai.git"
+    "url": "git+https://github.com/byteboomers/tuai.git"
   },
   "bugs": {
-    "url": "https://github.com/Botre/tuai/issues"
+    "url": "https://github.com/byteboomers/tuai/issues"
   },
   "main": "dist/tuai.js",
   "scripts": {
     "build": "webpack --mode production --progress"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.3",
+    "nanoid": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -31,9 +36,5 @@
     "babel-loader": "^8.0.5",
     "webpack": "^4.30.0",
     "webpack-cli": "^3.3.0"
-  },
-  "dependencies": {
-    "@babel/runtime": "^7.4.3",
-    "nanoid": "^2.0.1"
   }
 }

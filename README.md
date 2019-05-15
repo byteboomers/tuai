@@ -1,6 +1,6 @@
 # Tuai
 
-> Asynchronous request–response iframe messaging
+Asynchronous request–response iframe messaging
 
 ## About
 
@@ -41,7 +41,7 @@ npm install --save tuai
 <script src="https://unpkg.com/tuai@latest"></script>
 ```
 
-## Setup
+## Usage
 
 ### Sender
 
@@ -89,7 +89,7 @@ receiver.addResponder(function(ctx) {
 });
 ```
 
-A reponder:
+A responder:
 
 Must be a function or a promise:
 
@@ -113,16 +113,3 @@ if (!ctx.mesage.startsWith("Hello,")) {
   throw new Error("Don't be so rude!");
 }
 ```
-
-## Powered by
-
-- Babel 7
-- Webpack 4
-
-## License
-
-[MIT](http://opensource.org/licenses/MIT)
-
-## Twitter
-
-[Follow me on Twitter](https://twitter.com/KrolsBjorn)
