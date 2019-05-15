@@ -1,4 +1,4 @@
-# Tuai
+# tuai
 
 Asynchronous request–response iframe messaging
 
