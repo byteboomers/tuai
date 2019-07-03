@@ -2,7 +2,7 @@
   "name": "tuai",
   "description": "Asynchronous request–response iframe messaging",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Bjorn Krols (https://byteboomers.com)",
   "license": "MIT",
   "keywords": [
