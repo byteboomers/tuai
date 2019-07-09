@@ -41,8 +41,7 @@ export function Sender({ querySelectors, receiverOrigin, timeout = 15000 }) {
           if (response != null) {
             clearInterval(interval);
             if (response.error) {
-              const error = response.message;
-              reject(new Error(error.message));
+              reject(response.message);
             } else {
               resolve(response.message);
             }
@@ -87,7 +86,7 @@ export function Receiver() {
               id,
               type: RESPONSE_TYPE,
               error: true,
-              message: error
+              message: JSON.parse(JSON.stringify(error)) // Prevent serialization error
             },
             origin
           );
