@@ -41,7 +41,8 @@ export function Sender({ querySelectors, receiverOrigin, timeout = 15000 }) {
           if (response != null) {
             clearInterval(interval);
             if (response.error) {
-              reject(response.message);
+              const error = response.message;
+              reject(new Error(error.message));
             } else {
               resolve(response.message);
             }
