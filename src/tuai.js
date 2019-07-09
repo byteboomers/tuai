@@ -40,7 +40,11 @@ export function Sender({ querySelectors, receiverOrigin, timeout = 15000 }) {
           const response = responses[id];
           if (response != null) {
             clearInterval(interval);
-            resolve(response.message);
+            if (response.error) {
+              reject(response.message);
+            } else {
+              resolve(response.message);
+            }
           }
           if (attempts >= maximumAttempts) {
             reject(new Error("Tuai message timed out"));
@@ -77,7 +81,15 @@ export function Receiver() {
             origin
           );
         } catch (error) {
-          console.error(error); //TODO: handle error
+          source.postMessage(
+            {
+              id,
+              type: RESPONSE_TYPE,
+              error: true,
+              message: error
+            },
+            origin
+          );
         }
       });
     }
