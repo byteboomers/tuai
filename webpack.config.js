@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   output: {
     library: "Tuai",
@@ -18,4 +16,3 @@ module.exports = {
     ]
   }
 };
-path;
