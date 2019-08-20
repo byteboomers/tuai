@@ -6,13 +6,10 @@
   "author": "Bjorn Krols (https://byteboomers.com)",
   "license": "MIT",
   "keywords": [
-    "iframe",
-    "postMessage",
-    "contentWindow",
-    "promise",
     "asynchronous",
+    "iframe",
     "messaging",
-    "browser"
+    "promise"
   ],
   "homepage": "https://github.com/byteboomers/tuai#readme",
   "repository": {
