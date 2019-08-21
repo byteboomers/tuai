@@ -1,6 +1,7 @@
 module.exports = {
   output: {
     library: "Tuai",
+    filename: "tuai.js",
     libraryTarget: "umd",
     umdNamedDefine: true
   },

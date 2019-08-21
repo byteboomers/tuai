@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/byteboomers/tuai/issues"
   },
-  "main": "dist/main.js",
+  "main": "dist/tuai.js",
   "scripts": {
     "build": "webpack --mode production --progress",
     "prettier": "prettier --write **/*.js **/*.json **/*.yml **/*.md"
